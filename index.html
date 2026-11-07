@@ -7,15 +7,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #090b0e;
-            --surface: #131720;
-            --surface-hover: #1a1f2c;
-            --primary: #d97706;
-            --primary-glow: rgba(217, 119, 6, 0.35);
-            --accent: #fbbf24;
+            --bg: #040711;
+            --surface: #0e1422;
+            --surface-hover: #151d30;
+            --primary: #38bdf8;
+            --primary-glow: rgba(56, 189, 248, 0.35);
+            --accent: #bae6fd;
             --text-main: #ffffff;
-            --text-muted: #9ca3af;
-            --border: #222938;
+            --text-muted: #94a3b8;
+            --border: #1e293b;
         }
 
         * {
@@ -36,8 +36,8 @@
             position: relative;
         }
 
-        /* ЖЕСТКИЙ ОСЕННИЙ ВАЙБ: Крупные листья и капельки */
-        .autumn-bg {
+        /* ЗИМНИЙ ВАЙБ: Падающий снег и ледяное сияние */
+        .winter-bg {
             position: fixed;
             top: 0;
             left: 0;
@@ -46,48 +46,34 @@
             pointer-events: none;
             z-index: -1;
             overflow: hidden;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(129, 140, 248, 0.06) 0%, transparent 40%);
         }
 
-        .leaf {
-            position: absolute;
-            top: -15%;
-            font-size: 36px;
-            opacity: 0.35;
-            animation: fall-leaf linear infinite;
-        }
-
-        .leaf:nth-child(1) { left: 4%; font-size: 42px; animation-duration: 9s; animation-delay: 0s; }
-        .leaf:nth-child(2) { left: 18%; font-size: 32px; animation-duration: 13s; animation-delay: 2s; }
-        .leaf:nth-child(3) { left: 35%; font-size: 46px; animation-duration: 11s; animation-delay: 4s; }
-        .leaf:nth-child(4) { left: 52%; font-size: 38px; animation-duration: 14s; animation-delay: 1s; }
-        .leaf:nth-child(5) { left: 70%; font-size: 44px; animation-duration: 10s; animation-delay: 3s; }
-        .leaf:nth-child(6) { left: 88%; font-size: 34px; animation-duration: 12s; animation-delay: 5s; }
-
-        @keyframes fall-leaf {
-            0% { transform: translateY(-10vh) translateX(0) rotate(0deg); }
-            50% { transform: translateY(55vh) translateX(60px) rotate(180deg); }
-            100% { transform: translateY(110vh) translateX(-40px) rotate(360deg); }
-        }
-
-        .drop {
+        .snowflake {
             position: absolute;
             top: -10%;
-            font-size: 16px;
-            opacity: 0.2;
-            animation: fall-drop linear infinite;
+            color: #bae6fd;
+            font-size: 14px;
+            opacity: 0.6;
+            animation: fall-snow linear infinite;
+            text-shadow: 0 0 8px rgba(56, 189, 248, 0.6);
         }
 
-        .drop:nth-child(7) { left: 10%; animation-duration: 4s; animation-delay: 0s; }
-        .drop:nth-child(8) { left: 25%; animation-duration: 5s; animation-delay: 1.5s; }
-        .drop:nth-child(9) { left: 45%; animation-duration: 4.5s; animation-delay: 0.5s; }
-        .drop:nth-child(10) { left: 65%; animation-duration: 3.8s; animation-delay: 2s; }
-        .drop:nth-child(11) { left: 82%; animation-duration: 4.2s; animation-delay: 1s; }
-        .drop:nth-child(12) { left: 95%; animation-duration: 5.2s; animation-delay: 2.5s; }
+        .snowflake:nth-child(1) { left: 5%; font-size: 12px; animation-duration: 8s; animation-delay: 0s; }
+        .snowflake:nth-child(2) { left: 15%; font-size: 18px; animation-duration: 12s; animation-delay: 2s; }
+        .snowflake:nth-child(3) { left: 28%; font-size: 10px; animation-duration: 10s; animation-delay: 1s; }
+        .snowflake:nth-child(4) { left: 42%; font-size: 16px; animation-duration: 14s; animation-delay: 3s; }
+        .snowflake:nth-child(5) { left: 55%; font-size: 14px; animation-duration: 9s; animation-delay: 0.5s; }
+        .snowflake:nth-child(6) { left: 68%; font-size: 20px; animation-duration: 15s; animation-delay: 4s; }
+        .snowflake:nth-child(7) { left: 80%; font-size: 12px; animation-duration: 11s; animation-delay: 1.5s; }
+        .snowflake:nth-child(8) { left: 92%; font-size: 16px; animation-duration: 13s; animation-delay: 2.5s; }
 
-        @keyframes fall-drop {
-            0% { transform: translateY(-10vh); opacity: 0; }
-            50% { opacity: 0.25; }
-            100% { transform: translateY(110vh); opacity: 0; }
+        @keyframes fall-snow {
+            0% { transform: translateY(-10vh) translateX(0) rotate(0deg); }
+            50% { transform: translateY(55vh) translateX(30px) rotate(180deg); }
+            100% { transform: translateY(110vh) translateX(-20px) rotate(360deg); }
         }
 
         .container {
@@ -95,24 +81,24 @@
             max-width: 1200px;
         }
 
-        .autumn-banner {
-            background: linear-gradient(135deg, rgba(217, 119, 6, 0.18), rgba(180, 83, 9, 0.1));
-            border: 2px dashed rgba(217, 119, 6, 0.6);
+        .winter-banner {
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(14, 165, 233, 0.05));
+            border: 2px dashed rgba(56, 189, 248, 0.5);
             border-radius: 16px;
             padding: 16px;
             text-align: center;
             margin-bottom: 30px;
-            box-shadow: 0 0 25px rgba(217, 119, 6, 0.2);
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.15);
         }
 
-        .autumn-banner h3 {
-            color: #fbbf24;
+        .winter-banner h3 {
+            color: #38bdf8;
             font-size: 18px;
             font-weight: 800;
             margin-bottom: 4px;
         }
 
-        .autumn-banner p {
+        .winter-banner p {
             color: var(--text-muted);
             font-size: 13px;
         }
@@ -127,7 +113,7 @@
             font-size: 42px;
             font-weight: 900;
             margin-bottom: 6px;
-            background: linear-gradient(135deg, #fff 30%, #fbbf24 100%);
+            background: linear-gradient(135deg, #fff 30%, #38bdf8 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             letter-spacing: -1px;
@@ -143,9 +129,9 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            background: rgba(217, 119, 6, 0.12);
-            border: 1px solid rgba(217, 119, 6, 0.4);
-            color: #fbbf24;
+            background: rgba(56, 189, 248, 0.12);
+            border: 1px solid rgba(56, 189, 248, 0.4);
+            color: #38bdf8;
             padding: 6px 14px;
             border-radius: 20px;
             font-weight: 600;
@@ -187,7 +173,7 @@
         .channel-card:hover {
             transform: translateY(-5px);
             border-color: var(--primary);
-            box-shadow: 0 12px 30px rgba(217, 119, 6, 0.25);
+            box-shadow: 0 12px 30px rgba(56, 189, 248, 0.2);
         }
 
         .card-header {
@@ -217,8 +203,8 @@
 
         .click-hint {
             font-size: 11px;
-            color: #fbbf24;
-            background: rgba(217, 119, 6, 0.12);
+            color: #38bdf8;
+            background: rgba(56, 189, 248, 0.12);
             padding: 4px 8px;
             border-radius: 6px;
             font-weight: 600;
@@ -263,7 +249,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.85);
+            background: rgba(4, 7, 17, 0.85);
             backdrop-filter: blur(6px);
             display: flex;
             justify-content: center;
@@ -291,7 +277,7 @@
             padding: 24px;
             transform: scale(0.9);
             transition: 0.3s ease;
-            box-shadow: 0 20px 40px rgba(217, 119, 6, 0.35);
+            box-shadow: 0 20px 40px rgba(56, 189, 248, 0.3);
             position: relative;
         }
 
@@ -349,7 +335,7 @@
         .modal-info-title {
             font-size: 12px;
             text-transform: uppercase;
-            color: #fbbf24;
+            color: #38bdf8;
             font-weight: 700;
             margin-bottom: 4px;
             letter-spacing: 0.5px;
@@ -394,23 +380,24 @@
         }
 
         .btn-tgstat {
-            background: rgba(217, 119, 6, 0.15);
-            color: #fbbf24;
-            border: 1px solid rgba(217, 119, 6, 0.4);
+            background: rgba(56, 189, 248, 0.15);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.4);
         }
 
         .btn-tgstat:hover {
             background: var(--primary);
-            color: #fff;
+            color: #040711;
         }
 
         .btn-channel {
             background: var(--primary);
-            color: #fff;
+            color: #040711;
         }
 
         .btn-channel:hover {
-            background: #b45309;
+            background: #0284c7;
+            color: #fff;
         }
 
         /* Таблицы */
@@ -454,7 +441,7 @@
         }
 
         .link-item:hover {
-            color: #fbbf24;
+            color: #38bdf8;
         }
 
         .table-price {
@@ -499,7 +486,7 @@
         .contact-btn {
             display: block;
             width: 100%;
-            background: linear-gradient(135deg, #d97706, #b45309);
+            background: linear-gradient(135deg, #0ea5e9, #0284c7);
             color: white;
             text-align: center;
             padding: 16px;
@@ -507,13 +494,13 @@
             text-decoration: none;
             font-weight: 700;
             font-size: 16px;
-            box-shadow: 0 4px 20px rgba(217, 119, 6, 0.3);
+            box-shadow: 0 4px 20px rgba(14, 165, 233, 0.3);
             transition: 0.2s;
         }
 
         .contact-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(217, 119, 6, 0.5);
+            box-shadow: 0 6px 25px rgba(14, 165, 233, 0.5);
         }
 
         .copyright {
@@ -525,39 +512,35 @@
 </head>
 <body>
 
-    <div class="autumn-bg">
-        <div class="leaf">🍁</div>
-        <div class="leaf">🍂</div>
-        <div class="leaf">🍁</div>
-        <div class="leaf">🍂</div>
-        <div class="leaf">🍁</div>
-        <div class="leaf">🍂</div>
-        <div class="drop">💧</div>
-        <div class="drop">💧</div>
-        <div class="drop">💧</div>
-        <div class="drop">💧</div>
-        <div class="drop">💧</div>
-        <div class="drop">💧</div>
+    <div class="winter-bg">
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
     </div>
 
     <div class="container">
         
-        <div class="autumn-banner">
-            <h3>🍁 ОСЕННЯЯ АКЦИЯ — СКИДКА 20% 🍁</h3>
-            <p>При заказе рекламы сразу от 3-х каналов скидка 20% на весь заказ.</p>
+        <div class="winter-banner">
+            <h3>❄️ ЗИМНИЙ СЕЗОН — СКИДКА 20% ❄️</h3>
+            <p>При заказе рекламы сразу от 3-х каналов скидка 20% на весь зимний период.</p>
         </div>
 
         <header class="hero">
             <h1 class="logo-text">AM MEDIA</h1>
             <div class="subtitle">Прайс-лист и площадки для интеграций</div>
-            <div class="badge">🍂 Прямая связь с блогерами</div>
+            <div class="badge">❄️ Прямая связь с блогерами</div>
         </header>
 
         <!-- Telegram -->
         <h2 class="section-title">📱 Telegram-каналы</h2>
         <div class="cards-grid">
             
-            <div class="channel-card" onclick="openModal('taksebeyarik', 'Живой канал с активным комьюнити и хорошей вовлеченностью.', 'Аудитория 13-22 года, активные интернет-пользователи и геймеры.', '8 000 ₽', '12 000 ₽', '13 000 ₽', '—', '15 000 ₽', 'https://t.me/ad_manager100', 'https://tgstat.ru/channel/@taksebeyarik', true)">
+            <div class="channel-card" onclick="openModal('taksebeyarik', 'Живой канал с активным комьюнити и хорошей вовлеченностью.', 'Аудитория 13-22 года, активные интернет-пользователи и геймеры.', '8 000 ₽', '12 000 ₽', '13 000 ₽', '—', '15 000 ₽', 'https://t.me/taksebeyarik', 'https://tgstat.ru/channel/@taksebeyarik', true)">
                 <div class="card-header">
                     <div class="channel-name">@taksebeyarik <span class="rkn-badge">РКН</span></div>
                     <span class="click-hint">Подробнее</span>
@@ -570,7 +553,7 @@
                 </div>
             </div>
 
-            <div class="channel-card" onclick="openModal('xdanyl_channel', 'Развлекательный проект с большой аудиторией и охватами.', 'Молодежная аудитория 12-20 лет, любители трендов.', '25 000 ₽', '37 500 ₽', '56 250 ₽', '75 938 ₽', '113 907 ₽', 'https://t.me/ad_manager100', 'https://tgstat.ru/channel/@xdanyl_channel', true)">
+            <div class="channel-card" onclick="openModal('xdanyl_channel', 'Развлекательный проект с большой аудиторией и охватами.', 'Молодежная аудитория 12-20 лет, любители трендов.', '25 000 ₽', '37 500 ₽', '56 250 ₽', '75 938 ₽', '113 907 ₽', 'https://t.me/xdanyl_channel', 'https://tgstat.ru/channel/@xdanyl_channel', true)">
                 <div class="card-header">
                     <div class="channel-name">@xdanyl_channel <span class="rkn-badge">РКН</span></div>
                     <span class="click-hint">Подробнее</span>
@@ -583,7 +566,7 @@
                 </div>
             </div>
 
-            <div class="channel-card" onclick="openModal('BishkusTG', 'Популярный авторский блог с высокой активностью подписчиков.', 'Подростки и молодежь 12-20 лет, геймеры.', '14 000 ₽', '21 000 ₽', '31 500 ₽', '42 525 ₽', '63 788 ₽', 'https://t.me/ad_manager100', 'https://tgstat.ru/channel/@BishkusTG', true)">
+            <div class="channel-card" onclick="openModal('BishkusTG', 'Популярный авторский блог с высокой активностью подписчиков.', 'Подростки и молодежь 12-20 лет, геймеры.', '14 000 ₽', '21 000 ₽', '31 500 ₽', '42 525 ₽', '63 788 ₽', 'https://t.me/BishkusTG', 'https://tgstat.ru/channel/@BishkusTG', true)">
                 <div class="card-header">
                     <div class="channel-name">@BishkusTG <span class="rkn-badge">РКН</span></div>
                     <span class="click-hint">Подробнее</span>
@@ -596,7 +579,7 @@
                 </div>
             </div>
 
-            <div class="channel-card" onclick="openModal('familyklaipa', 'Крупное комьюнити с постоянными интерактивами.', 'Аудитория 12-20 лет, школьники и студенты.', '27 000 ₽', '40 500 ₽', '60 750 ₽', '82 012 ₽', '123 018 ₽', 'https://t.me/ad_manager100', 'https://tgstat.ru/channel/@familyklaipa', true)">
+            <div class="channel-card" onclick="openModal('familyklaipa', 'Крупное комьюнити с постоянными интерактивами.', 'Аудитория 12-20 лет, школьники и студенты.', '27 000 ₽', '40 500 ₽', '60 750 ₽', '82 012 ₽', '123 018 ₽', 'https://t.me/familyklaipa', 'https://tgstat.ru/channel/@familyklaipa', true)">
                 <div class="card-header">
                     <div class="channel-name">@familyklaipa <span class="rkn-badge">РКН</span></div>
                     <span class="click-hint">Подробнее</span>
@@ -609,7 +592,7 @@
                 </div>
             </div>
 
-            <div class="channel-card" onclick="openModal('Ded_B_Trusach', 'Развлекательный канал с мемами и юмором.', 'Молодежь 12-20 лет, геймеры.', '12 000 ₽', '18 000 ₽', '27 000 ₽', '36 450 ₽', '54 675 ₽', 'https://t.me/ad_manager100', 'https://tgstat.ru/channel/@Ded_B_Trusach', true)">
+            <div class="channel-card" onclick="openModal('Ded_B_Trusach', 'Развлекательный канал с мемами и юмором.', 'Молодежь 12-20 лет, геймеры.', '12 000 ₽', '18 000 ₽', '27 000 ₽', '36 450 ₽', '54 675 ₽', 'https://t.me/Ded_B_Trusach', 'https://tgstat.ru/channel/@Ded_B_Trusach', true)">
                 <div class="card-header">
                     <div class="channel-name">@Ded_B_Trusach <span class="rkn-badge">РКН</span></div>
                     <span class="click-hint">Подробнее</span>
@@ -622,7 +605,7 @@
                 </div>
             </div>
 
-            <div class="channel-card" onclick="openModal('sadpigeonefamily', 'Топовый лайфстайл-канал с лояльными подписчиками.', 'Подростки и молодежь 12-20 лет.', '30 000 ₽', '45 000 ₽', '67 500 ₽', '91 125 ₽', '136 688 ₽', 'https://t.me/ad_manager100', 'https://tgstat.ru/channel/@sadpigeonefamily', true)">
+            <div class="channel-card" onclick="openModal('sadpigeonefamily', 'Топовый лайфстайл-канал с лояльными подписчиками.', 'Подростки и молодежь 12-20 лет.', '30 000 ₽', '45 000 ₽', '67 500 ₽', '91 125 ₽', '136 688 ₽', 'https://t.me/sadpigeonefamily', 'https://tgstat.ru/channel/@sadpigeonefamily', true)">
                 <div class="card-header">
                     <div class="channel-name">@sadpigeonefamily <span class="rkn-badge">РКН</span></div>
                     <span class="click-hint">Подробнее</span>
@@ -635,7 +618,7 @@
                 </div>
             </div>
 
-            <div class="channel-card" onclick="openModal('sosiskaoa', 'Блог с жизненным контентом и юмором.', 'Аудитория 12-20 лет, школьники и студенты.', '9 000 ₽', '13 500 ₽', '20 250 ₽', '27 338 ₽', '41 007 ₽', 'https://t.me/ad_manager100', 'https://tgstat.ru/channel/@sosiskaoa', true)">
+            <div class="channel-card" onclick="openModal('sosiskaoa', 'Блог с жизненным контентом и юмором.', 'Аудитория 12-20 лет, школьники и студенты.', '9 000 ₽', '13 500 ₽', '20 250 ₽', '27 338 ₽', '41 007 ₽', 'https://t.me/sosiskaoa', 'https://tgstat.ru/channel/@sosiskaoa', true)">
                 <div class="card-header">
                     <div class="channel-name">@sosiskaoa <span class="rkn-badge">РКН</span></div>
                     <span class="click-hint">Подробнее</span>
@@ -648,7 +631,7 @@
                 </div>
             </div>
 
-            <div class="channel-card" onclick="openModal('DomerGrief', 'Главный канал по Minecraft и играм от топ-блогера.', 'Геймеры, дети и подростки 12-20 лет.', '110 000 ₽', '165 000 ₽', '247 500 ₽', '334 125 ₽', '501 188 ₽', 'https://t.me/ad_manager100', 'https://tgstat.ru/channel/@DomerGrief', false)">
+            <div class="channel-card" onclick="openModal('DomerGrief', 'Главный канал по Minecraft и играм от топ-блогера.', 'Геймеры, дети и подростки 12-20 лет.', '110 000 ₽', '165 000 ₽', '247 500 ₽', '334 125 ₽', '501 188 ₽', 'https://t.me/DomerGrief', 'https://tgstat.ru/channel/@DomerGrief', false)">
                 <div class="card-header">
                     <div class="channel-name">@DomerGrief</div>
                     <span class="click-hint">Подробнее</span>
@@ -661,7 +644,7 @@
                 </div>
             </div>
 
-            <div class="channel-card" onclick="openModal('ZenyTG', 'Канал с интересным контентом и активным чатом.', 'Молодежь 12-20 лет, геймеры.', '20 000 ₽', '30 000 ₽', '45 000 ₽', '60 750 ₽', '91 125 ₽', 'https://t.me/ad_manager100', 'https://tgstat.ru/channel/@ZenyTG', false)">
+            <div class="channel-card" onclick="openModal('ZenyTG', 'Канал с интересным контентом и активным чатом.', 'Молодежь 12-20 лет, геймеры.', '20 000 ₽', '30 000 ₽', '45 000 ₽', '60 750 ₽', '91 125 ₽', 'https://t.me/ZenyTG', 'https://tgstat.ru/channel/@ZenyTG', false)">
                 <div class="card-header">
                     <div class="channel-name">@ZenyTG</div>
                     <span class="click-hint">Подробнее</span>
@@ -674,7 +657,7 @@
                 </div>
             </div>
 
-            <div class="channel-card" onclick="openModal('greschkasklad', 'Уютное сообщество с лайв-контентом и юмором.', 'Подростки 12-20 лет, геймеры.', '6 000 ₽', '9 000 ₽', '13 500 ₽', '18 225 ₽', '27 338 ₽', 'https://t.me/ad_manager100', 'https://tgstat.ru/channel/@greschkasklad', true)">
+            <div class="channel-card" onclick="openModal('greschkasklad', 'Уютное сообщество с лайв-контентом и юмором.', 'Подростки 12-20 лет, геймеры.', '6 000 ₽', '9 000 ₽', '13 500 ₽', '18 225 ₽', '27 338 ₽', 'https://t.me/greschkasklad', 'https://tgstat.ru/channel/@greschkasklad', true)">
                 <div class="card-header">
                     <div class="channel-name">@greschkasklad <span class="rkn-badge">РКН</span></div>
                     <span class="click-hint">Подробнее</span>
@@ -687,7 +670,7 @@
                 </div>
             </div>
 
-            <div class="channel-card" onclick="openModal('lokushkaa', 'Динамичный Telegram-блог.', 'Молодежь 12-20 лет.', '6 000 ₽', '9 000 ₽', '13 500 ₽', '18 225 ₽', '27 338 ₽', 'https://t.me/ad_manager100', 'https://tgstat.ru/channel/@lokushkaa', true)">
+            <div class="channel-card" onclick="openModal('lokushkaa', 'Динамичный Telegram-блог.', 'Молодежь 12-20 лет.', '6 000 ₽', '9 000 ₽', '13 500 ₽', '18 225 ₽', '27 338 ₽', 'https://t.me/lokushkaa', 'https://tgstat.ru/channel/@lokushkaa', true)">
                 <div class="card-header">
                     <div class="channel-name">@lokushkaa <span class="rkn-badge">РКН</span></div>
                     <span class="click-hint">Подробнее</span>
@@ -811,7 +794,7 @@
 
         <!-- Футер -->
         <footer class="footer">
-            <a href="https://t.me/ad_manager100" target="_blank" class="contact-btn">🍁 Связаться: @ad_manager100</a>
+            <a href="https://t.me/ad_manager100" target="_blank" class="contact-btn">❄️ Связаться: @ad_manager100</a>
             <div class="copyright">AM MEDIA &copy; 2026. Все права защищены.</div>
         </footer>
 
