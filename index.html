@@ -23,6 +23,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth; /* Плавный скролл при клике на меню */
         }
 
         body {
@@ -101,7 +102,7 @@
             border-radius: 16px;
             padding: 16px;
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             box-shadow: 0 0 25px rgba(217, 119, 6, 0.2);
         }
 
@@ -119,7 +120,7 @@
 
         .hero {
             text-align: center;
-            padding: 10px 10px 20px;
+            padding: 10px 10px 15px;
             position: relative;
         }
 
@@ -136,7 +137,7 @@
         .subtitle {
             font-size: 14px;
             color: var(--text-muted);
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .badge {
@@ -150,6 +151,42 @@
             border-radius: 20px;
             font-weight: 600;
             font-size: 12px;
+        }
+
+        /* НАВИГАЦИОННОЕ МЕНЮ (Быстрый переход по площадкам) */
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 20px 0 35px 0;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+            background: rgba(9, 11, 14, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 10px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+        }
+
+        .nav-btn {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .nav-btn:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #fff;
+            transform: translateY(-2px);
         }
 
         .section-title {
@@ -553,8 +590,16 @@
             <div class="badge">🍂 Прямая связь с блогерами</div>
         </header>
 
+        <!-- Навигационное меню (Якоря для быстрого перехода) -->
+        <nav class="nav-menu">
+            <a href="#section-telegram" class="nav-btn">📱 Telegram</a>
+            <a href="#section-tiktok" class="nav-btn">🎬 TikTok</a>
+            <a href="#section-twitch" class="nav-btn">🎮 Twitch</a>
+            <a href="#section-youtube" class="nav-btn">▶️ YouTube</a>
+        </nav>
+
         <!-- Telegram -->
-        <h2 class="section-title">📱 Telegram-каналы</h2>
+        <h2 id="section-telegram" class="section-title">📱 Telegram-каналы</h2>
         <div class="cards-grid">
             
             <div class="channel-card" onclick="openModal('taksebeyarik', 'Живой канал с активным комьюнити и хорошей вовлеченностью.', 'Аудитория 13-22 года, активные интернет-пользователи и геймеры.', '8 000 ₽', '12 000 ₽', '13 000 ₽', '—', '15 000 ₽', 'https://t.me/taksebeyarik', 'https://tgstat.ru/channel/@taksebeyarik', true)">
@@ -735,7 +780,7 @@
         </div>
 
         <!-- TikTok -->
-        <h2 class="section-title">🎬 TikTok</h2>
+        <h2 id="section-tiktok" class="section-title">🎬 TikTok</h2>
         <div class="table-container">
             <table>
                 <thead>
@@ -756,7 +801,7 @@
         </div>
 
         <!-- Twitch -->
-        <h2 class="section-title">🎮 Twitch</h2>
+        <h2 id="section-twitch" class="section-title">🎮 Twitch</h2>
         <div class="table-container">
             <table>
                 <thead>
@@ -780,7 +825,7 @@
         </div>
 
         <!-- YouTube -->
-        <h2 class="section-title">▶️ YouTube</h2>
+        <h2 id="section-youtube" class="section-title">▶️ YouTube</h2>
         <div class="table-container">
             <table>
                 <thead>
