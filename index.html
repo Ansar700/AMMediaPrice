@@ -23,7 +23,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth; /* Плавный скролл при клике на меню */
+            scroll-behavior: smooth;
         }
 
         body {
@@ -153,21 +153,24 @@
             font-size: 12px;
         }
 
-        /* НАВИГАЦИОННОЕ МЕНЮ (Быстрый переход по площадкам) */
+        /* НАВИГАЦИОННОЕ МЕНЮ — СТРОГО ПО ЦЕНТРУ */
         .nav-menu {
             display: flex;
             justify-content: center;
-            gap: 10px;
+            align-items: center;
+            gap: 12px;
             flex-wrap: wrap;
-            margin: 20px 0 35px 0;
+            margin: 20px auto 35px auto;
             position: sticky;
             top: 10px;
             z-index: 100;
-            background: rgba(9, 11, 14, 0.85);
+            background: rgba(9, 11, 14, 0.9);
             backdrop-filter: blur(10px);
-            padding: 10px;
-            border-radius: 14px;
+            padding: 12px 20px;
+            border-radius: 16px;
             border: 1px solid var(--border);
+            max-width: 600px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
         .nav-btn {
@@ -590,7 +593,7 @@
             <div class="badge">🍂 Прямая связь с блогерами</div>
         </header>
 
-        <!-- Навигационное меню (Якоря для быстрого перехода) -->
+        <!-- Навигационное меню (Якоря для быстрого перехода, по центру) -->
         <nav class="nav-menu">
             <a href="#section-telegram" class="nav-btn">📱 Telegram</a>
             <a href="#section-tiktok" class="nav-btn">🎬 TikTok</a>
